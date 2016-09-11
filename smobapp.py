@@ -64,23 +64,18 @@ def heropicker():
               'Troll Warlord','Tusk','Underlord','Undying','Ursa','Vengeful Spirit','Venomancer','Viper','Visage','Warlock','Weaver','Windranger','Winter Wyvern',
               'Witch Doctor','Wraith King','Zeus']
     
-    bogdan = random.choice(heroes)
-    ben = random.choice(heroes)
-    allen = random.choice(heroes)
-    dylan = random.choice(heroes)
-    chris = random.choice(heroes)
-    
-    if (bogdan == ben or bogdan == allen or bogdan == chris or bogdan == dylan):
-        bogdan = random.choice(heroes)
-    elif (ben == allen or ben == dylan or ben == chris):
-        ben = random.choice(heroes)
-    elif (allen == dylan or allen == chris):
-        allen = random.choice(heroes)
-    elif (dylan == chris):
-        dylan = random.choice(heroes)
-    else:
-        print("Bogdan: %s\nAllen: %s\nBen: %s\nDylan: %s\nChris: %s\n" % (bogdan, allen, ben, dylan, chris))
-        
+    players = ['Bogdan', 'Ben', 'Allen', 'Dylan', 'Chris', 'Zack']
+    random.shuffle(players)
+    player_hero_dict = {}
+    for player in players[0:5]:
+        hero = random.choice(heroes)
+        found = False
+        while not found:
+            if hero not in player_hero_dict.values():
+                player_hero_dict[player] = hero
+                found = True
+    for k,v in player_hero_dict.iteritems():
+        print '%s -> %s' % (k,v)
 # DEATH CALCULATOR FUNCTION
 def deathcalc():
     minutes = 0 

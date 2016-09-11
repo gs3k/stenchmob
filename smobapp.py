@@ -67,7 +67,6 @@ def heropicker():
     players = ['Bogdan', 'Ben', 'Allen', 'Dylan', 'Chris', 'Zack']
     random.shuffle(players)
     player_hero_dict = {}
-    import pdb; pdb.set_trace()
     for player in players[0:5]:
         hero = random.choice(heroes)
         found = False
